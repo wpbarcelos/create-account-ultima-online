@@ -16,4 +16,4 @@ Configuration:
 - Database: Copy **.env.example** to **.env** and configure database access.
 - Apache/Nignx: Configure root directory **public** folder.
 
-0/
+Bye... 0/
