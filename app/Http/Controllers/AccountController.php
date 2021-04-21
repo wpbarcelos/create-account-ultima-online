@@ -15,8 +15,8 @@ class AccountController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'nome'=>'required|max:15|alpha_num|max:15|unique:naccounts',
-            'email'=>'required|email|max:30',
+            'nome'=>'required|max:15|alpha_num|max:15',
+            'email'=>'required|email|max:30|unique:naccounts',
             'senha'=>'required|min:8|confirmed'
         ], [
             '*.required'=> ':Attribute é um campo obrigatório',
@@ -24,7 +24,8 @@ class AccountController extends Controller
             'senha.min'=>'A senha deve ter no minimo :min caracteres',
             '*.max'=>'Permitido no maximo :max caracteres',
             'senha.confirmed'=>'A senha confirmação da senha não confere.',
-            'nome.alpha_num'=>'Permitido somente letras e numeros'
+            'nome.alpha_num'=>'Permitido somente letras e numeros',
+            '*.unique'=>'Este :attribute já está em uso'
         ]);
 
         $data = request()->only(['nome','email','senha']);
