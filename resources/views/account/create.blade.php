@@ -34,7 +34,7 @@
 
             <fieldset class='mb-5'>
                 <label for="senha">Senha <span class='text-gray-700'>(No mínimo 8 caracteres)</span></label>
-                <input type="password" name="senha" id="senha" value='{{ old("senha")}}'
+                <input type="password" name="senha" id="senha" value=''
                     placeholder="Informe o seu senha, no minimo 8 caracteres" class="w-full p-3 py-2 bg-gray-50 border-gray-300 focus:border-gray-500 placeholder-gray-600 focus:placeholder-gray-300  outline-none rounded 
                     @error('senha') border-2 border-red-500 bg-red-50 @else border  @enderror">
                 @error('senha')
