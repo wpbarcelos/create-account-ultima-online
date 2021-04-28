@@ -13,7 +13,8 @@
         <p class="mt-2">Conta criada com sucesso</p>
 
         <p class="mt-8">
-            <a href="http://localhost" class="rounded mt-10 py-2 bg-blue-500 px-10 text-white"> ← Voltar</a>
+            <a href="{{ route('account.create') }}" class="rounded mt-10 py-2 bg-blue-500 px-10 text-white"> ←
+                Voltar</a>
         </p>
     </main>
 </body>
