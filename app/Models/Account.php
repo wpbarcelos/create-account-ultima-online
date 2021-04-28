@@ -11,11 +11,11 @@ class Account extends Model
 
     public $timestamps = false;
 
-    protected $table = 'naccounts';
+    protected $table = 'users_all';
 
     protected $fillable = [
-        'email',
-        'nome',
-        'password'
+        'usersname',
+        'usersemail',
+        'userspassword'
     ];
 }
