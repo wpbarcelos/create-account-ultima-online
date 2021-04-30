@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\AccountSphere;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -33,6 +34,12 @@ class AccountController extends Controller
         $data['password'] = md5($data['senha']);
 
         Account::create([
+            'usersname'=> $data['nome'],
+            'usersemail'=> $data['email'],
+            'userspassword'=> $data['password']
+        ]);
+
+        AccountSphere::create([
             'usersname'=> $data['nome'],
             'usersemail'=> $data['email'],
             'userspassword'=> $data['password']
