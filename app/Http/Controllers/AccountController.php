@@ -16,31 +16,31 @@ class AccountController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'nome'=>'required|max:15|alpha_num|max:15|unique:users_all,usersName',
+            'login'=>'required|max:15|alpha_num|max:15|unique:users_all,usersName',
             'email'=>'required|email|max:30|unique:users_all,usersEmail',
             'senha'=>'required|min:8|confirmed'
         ], [
-            '*.required'=> ':Attribute é um campo obrigatório',
+            'login.alpha_num'=>'Permitido somente letras e números',
             'email.email'=>'Informe um email válido',
             'senha.min'=>'A senha deve ter no minimo :min caracteres',
-            '*.max'=>'Permitido no maximo :max caracteres',
             'senha.confirmed'=>'Favor confirmar a senha.',
-            'nome.alpha_num'=>'Permitido somente letras e numeros',
+            '*.required'=> ':Attribute é um campo obrigatório',
+            '*.max'=>'Permitido no máximo :max caracteres',
             '*.unique'=>'Este :attribute já está em uso'
         ]);
 
-        $data = request()->only(['nome','email','senha']);
+        $data = request()->only(['login','email','senha']);
 
         $data['password'] = md5($data['senha']);
 
         Account::create([
-            'usersname'=> $data['nome'],
+            'usersname'=> $data['login'],
             'usersemail'=> $data['email'],
             'userspassword'=> $data['password']
         ]);
 
         AccountSphere::create([
-            'usersname'=> $data['nome'],
+            'usersname'=> $data['login'],
             'usersemail'=> $data['email'],
             'userspassword'=> $data['password']
         ]);

@@ -13,11 +13,11 @@
         <form action="{{ route('account.store')}}" method='post'>
             @csrf
             <fieldset class='mb-5'>
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" value='{{ old("nome")}}' placeholder="Informe o seu nome"
+                <label for="login">Login</label>
+                <input type="text" name="login" id="login" value='{{ old("login")}}' placeholder="Informe o seu login"
                     class="w-full p-3 py-2 bg-gray-50 border-gray-300 focus:border-gray-500 placeholder-gray-600 focus:placeholder-gray-300  outline-none rounded 
-                    @error('nome') border-2 border-red-500 bg-red-50 @else border  @enderror">
-                @error('nome')
+                    @error('login') border-2 border-red-500 bg-red-50 @else border  @enderror">
+                @error('login')
                 <p class='p-2 text-red-500'>{{ $message }}</p>
                 @enderror
             </fieldset>
